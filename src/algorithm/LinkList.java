@@ -201,6 +201,84 @@ public class LinkList {
         return mergeNode;
     }
 
+    /**
+     * 输入两个链表，找出它们的第一个公共结点。
+     *
+     * 思路：找出2个链表的长度，然后让长的先走两个链表的长度差，然后再一起走
+     * （因为2个链表用公共的尾部）
+     */
+    public Node FindFirstCommonNode(Node pHead1, Node pHead2) {
+
+
+        if (pHead1 == null || pHead2 == null) {
+            return null;
+        }
+        Node current1=pHead1;
+        Node current2=pHead2;
+
+        int length1 = length(pHead1);
+        int length2 = length(pHead2);
+        if (length1 - length2 > 0) {
+            int count=length1 - length2;
+            for (int i = 0; i < count; i++) {
+                current1 = current1.next;
+            }
+        } else {
+            int count=length2 - length1;
+            for (int i = 0; i < count; i++) {
+                current2 = current2.next;
+            }
+        }
+
+        while (current1 != null) {
+            if (current1 == current2) {
+                return current1;
+            }
+            current1 = current1.next;
+            current2 = current2.next;
+        }
+
+        return null;
+
+
+    }
+
+    /**
+     *【快慢指针】：需要两个指针，一个快指针：每次走两步，一个慢指针：每次走一步。
+     * 如果快慢指针能够相遇（如果快指针能够追上慢指针)，就证明有环。
+     * 判断一个链表环是否存在，同时返回
+     *
+     */
+
+    public Node EntryNodeOfLoop(Node pHead) {
+        if(pHead==null||pHead.next==null){
+            return null;
+        }
+
+        Node preList=pHead;
+        Node lastList=pHead;
+        while (preList!=null&&preList.next!=null){
+            preList=preList.next.next;
+            lastList=lastList.next;
+
+            if(preList==lastList){//判断环存在
+                preList=pHead;
+                while (preList!=lastList){
+                    preList=preList.next;
+                    lastList=lastList.next;
+                }
+                if(preList==lastList){
+                    return preList;
+                }
+            }
+        }
+
+        return null;
+
+    }
+
+
+
 
 
     public static void main(String[] args) {

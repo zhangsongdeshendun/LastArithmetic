@@ -1,6 +1,5 @@
 package algorithm;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -11,23 +10,26 @@ public class ReOrderArray {
 
 
     public void fun(int[] array) {
-        ArrayList<Integer> arrJ = new ArrayList<>();
-        ArrayList<Integer> arrO = new ArrayList<>();
 
-        for (int i = 0; i < array.length; i++) {
-            if (isJ(array[i])) {
-                arrJ.add(array[i]);
-            } else {
-                arrO.add(array[i]);
+        int left = 0;
+        int right = array.length - 1;
+        int flag = 0;
+        while (left < right) {
+            if (isJ(array[left])) {
+                left++;
+                continue;
             }
-        }
+            if (!isJ(array[right])) {
+                right--;
+                continue;
+            }
+            if (left < right) {
+                flag = array[left];
+                array[left++] = array[right];
+                array[right--] = flag;
 
-        for (int i = 0; i < arrJ.size(); i++) {
-            array[i] = arrJ.get(i);
-        }
+            }
 
-        for (int i = 0; i < arrO.size(); i++) {
-            array[arrJ.size() + i] = arrO.get(i);
         }
 
 
@@ -42,8 +44,8 @@ public class ReOrderArray {
 
 
     public static void main(String[] args) {
-        ReOrderArray reOrderArray=new ReOrderArray();
-        int[] arr = {1, 5, 4, 3, 2, 6};
+        ReOrderArray reOrderArray = new ReOrderArray();
+        int[] arr = {1,2,3,4,5,6,7};
 
         reOrderArray.fun(arr);
 
