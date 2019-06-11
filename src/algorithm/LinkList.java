@@ -153,57 +153,58 @@ public class LinkList {
 
     /**
      * 合并两个有序链表
+     *
      * @param head1
      * @param head2
      * @return
      */
 
-    public Node mergeList(Node head1,Node head2){
-        if(head1==null&&head2==null){
+    public Node mergeList(Node head1, Node head2) {
+        if (head1 == null && head2 == null) {
             return null;
         }
-        if(head1==null){
+        if (head1 == null) {
             return head2;
         }
-        if(head2==null){
+        if (head2 == null) {
             return head1;
         }
         Node mergeNode;
         Node currentNode;
-        if(head1.data<=head2.data){
-            currentNode=head1;
-            mergeNode=currentNode;
-            head1=head1.next;
-        }else {
-            currentNode=head2;
-            mergeNode=currentNode;
-            head2=head2.next;
+        if (head1.data <= head2.data) {
+            currentNode = head1;
+            mergeNode = currentNode;
+            head1 = head1.next;
+        } else {
+            currentNode = head2;
+            mergeNode = currentNode;
+            head2 = head2.next;
         }
 
-        while (head1!=null&&head2!=null){
-            if(head1.data<=head2.data){
-                currentNode.next=head1;
-                currentNode=currentNode.next;
-                head1=head1.next;
-            }else {
-                currentNode.next=head2;
-                currentNode=currentNode.next;
-                head2=head2.next;
+        while (head1 != null && head2 != null) {
+            if (head1.data <= head2.data) {
+                currentNode.next = head1;
+                currentNode = currentNode.next;
+                head1 = head1.next;
+            } else {
+                currentNode.next = head2;
+                currentNode = currentNode.next;
+                head2 = head2.next;
             }
         }
 
-        if(head1==null){
-            currentNode.next=head2;
+        if (head1 == null) {
+            currentNode.next = head2;
         }
-        if(head2==null){
-            currentNode.next=head1;
+        if (head2 == null) {
+            currentNode.next = head1;
         }
         return mergeNode;
     }
 
     /**
      * 输入两个链表，找出它们的第一个公共结点。
-     *
+     * <p>
      * 思路：找出2个链表的长度，然后让长的先走两个链表的长度差，然后再一起走
      * （因为2个链表用公共的尾部）
      */
@@ -213,18 +214,18 @@ public class LinkList {
         if (pHead1 == null || pHead2 == null) {
             return null;
         }
-        Node current1=pHead1;
-        Node current2=pHead2;
+        Node current1 = pHead1;
+        Node current2 = pHead2;
 
         int length1 = length(pHead1);
         int length2 = length(pHead2);
         if (length1 - length2 > 0) {
-            int count=length1 - length2;
+            int count = length1 - length2;
             for (int i = 0; i < count; i++) {
                 current1 = current1.next;
             }
         } else {
-            int count=length2 - length1;
+            int count = length2 - length1;
             for (int i = 0; i < count; i++) {
                 current2 = current2.next;
             }
@@ -244,30 +245,29 @@ public class LinkList {
     }
 
     /**
-     *【快慢指针】：需要两个指针，一个快指针：每次走两步，一个慢指针：每次走一步。
+     * 【快慢指针】：需要两个指针，一个快指针：每次走两步，一个慢指针：每次走一步。
      * 如果快慢指针能够相遇（如果快指针能够追上慢指针)，就证明有环。
      * 判断一个链表环是否存在，同时返回
-     *
      */
 
     public Node EntryNodeOfLoop(Node pHead) {
-        if(pHead==null||pHead.next==null){
+        if (pHead == null || pHead.next == null) {
             return null;
         }
 
-        Node preList=pHead;
-        Node lastList=pHead;
-        while (preList!=null&&preList.next!=null){
-            preList=preList.next.next;
-            lastList=lastList.next;
+        Node preList = pHead;
+        Node lastList = pHead;
+        while (preList != null && preList.next != null) {
+            preList = preList.next.next;
+            lastList = lastList.next;
 
-            if(preList==lastList){//判断环存在
-                preList=pHead;
-                while (preList!=lastList){
-                    preList=preList.next;
-                    lastList=lastList.next;
+            if (preList == lastList) {//判断环存在
+                preList = pHead;
+                while (preList != lastList) {
+                    preList = preList.next;
+                    lastList = lastList.next;
                 }
-                if(preList==lastList){
+                if (preList == lastList) {
                     return preList;
                 }
             }
@@ -277,13 +277,31 @@ public class LinkList {
 
     }
 
+    /**
+     * 找到一个链表的中间值，采用的同样是同样是快慢链表的方法，一个每次走一步，另一个一次走两步，当走两步那个到达终点，走一步那个就到中间了
+     */
 
+    public Node searchMid(Node head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        Node preNode = head;
+        Node lastNode = head;
 
+        while (preNode != null && preNode.next != null &&preNode.next.next!=null) {
+            preNode = preNode.next.next;
+            lastNode = lastNode.next;
+
+        }
+
+        return lastNode;
+
+    }
 
 
     public static void main(String[] args) {
         LinkList linkList = new LinkList();
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 10};
+        int[] arr = {1, 2, 3, 4, 5,6};
 
         for (int i = 0; i < arr.length; i++) {
             linkList.add(arr[i]);
@@ -298,6 +316,8 @@ public class LinkList {
 
 //        linkList.findElem(0).display();
 //        linkList.printNode(linkList.mergeList(linkList.head1,linkList.head));
+
+//        linkList.searchMid(linkList.head).display();
 
 
     }
