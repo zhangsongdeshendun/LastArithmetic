@@ -133,12 +133,12 @@ public class Tree {
             tree.insert(x);
         }
 
-        tree.middleOrder(tree.root);
+//        tree.middleOrder(tree.root);
 
         System.out.println(tree.treeDepth(tree.root));
 
-        tree.findMin().display();
-        tree.findMax().display();
+//        tree.findMin().display();
+//        tree.findMax().display();
 
 
     }
