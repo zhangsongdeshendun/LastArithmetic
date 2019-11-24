@@ -1,97 +1,67 @@
 package app;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
+
+import java.util.*;
 
 public class Test {
 
-//    public class Node {
-//        public int data;
-//        public Node next;
-//
-//        public Node(int data) {
-//            this.data = data;
-//        }
-//
-//        public void display() {
-//            System.out.println(data + "");
-//        }
-//    }
-//
-//    Node head = null;
-//
-//    /**
-//     * 向链表中添加数据
-//     */
-//    public void add(int data) {
-//        Node node = new Node(data);
-//        if (head == null) {
-//            head = node;
-//            return;
-//        }
-//
-//        Node currentNode = head;
-//        while (currentNode.next != null) {
-//            currentNode = currentNode.next;
-//        }
-//        currentNode.next = node;
-//    }
-//
-//    /**
-//     * 打印链表
-//     */
-//    public void printNode(Node node) {
-//        if (node == null) {
-//            return;
-//        }
-//
-//        Node currentNode = node;
-//
-//        while (currentNode != null) {
-//            currentNode.display();
-//            currentNode = currentNode.next;
-//        }
-//
-//    }
-//
-//    /**
-//     * 反转一个链表
-//     * @param args
-//     */
-//    public Node reverseNode(Node node){
-//        if(node==null||node.next==null){
-//            return node;
-//        }
-//        Node reverseNode=null;
-//        Node currentNode=node;
-//        Node next;
-//        while (currentNode!=null){
-//            next=currentNode.next;
-//
-//            currentNode=reverseNode;
-//
-//
-//            currentNode=next;
-//
-//        }
-//    }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Test linkList = new Test();
-//        int[] arr = {1, 2, 3, 4, 5, 6, 7, 10};
-//
-//        for (int i = 0; i < arr.length; i++) {
-//            linkList.add(arr[i]);
-//
-//        }
-//
-//        linkList.printNode(linkList.head);
+        User u1 = new User("song", 3);
+        User u2 = new User("wen", 1);
+        User u3 = new User("mu", 9);
+        User u4 = new User("mu", 4);
+        ArrayList<User> list = new ArrayList<User>();
+        list.add(u1);
+        list.add(u2);
+        list.add(u3);
+        list.add(u4);
+        for (User user : list) {
+            System.out.println(user.toString());
+        }
+        System.out.println("*********************************");
+        Collections.sort(list, new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                if (o1.age > o2.age) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+
+            }
+        });
 
 
+        for (User user : list) {
+            System.out.println(user.toString());
+        }
 
+
+    }
+
+
+    public final void say() {
+        System.out.println("1234");
+    }
+
+    public static class User {
+
+        private String name;
+        private int age;
+
+        public User(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "name=" + name + "age=" + age;
+        }
     }
 
 

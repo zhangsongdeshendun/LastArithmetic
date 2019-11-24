@@ -28,7 +28,7 @@ public class SingleNumber {
 
     public static void main(String[] args) {
         SingleNumber singleNumber = new SingleNumber();
-        int[] arr = {1, 1, 2, 2, 5, 6, 6, 5, 0};
+        int[] arr = {1, 1, 2, 2, 5, 6, 6, 5, 10};
         System.out.println(singleNumber.fun(arr));
 
 
