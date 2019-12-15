@@ -1,5 +1,8 @@
-package app;
+package leetcode;
 
+/**
+ * 152. 乘积最大子序列
+ */
 public class MaxProduct {
 
     public int maxProduct(int[] nums) {

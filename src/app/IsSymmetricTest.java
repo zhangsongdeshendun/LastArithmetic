@@ -1,22 +1,17 @@
-package leetcode;
+package app;
 
-/**
- * 这是正确答案
- * 101. 对称二叉树
- *
- */
-public class IsSymmetric {
+public class IsSymmetricTest {
+
 
     public class TreeNode {
         public TreeNode left;
         public TreeNode right;
-        public int val;
+        public int value;
 
         public TreeNode(int value) {
-            this.val = value;
+            this.value = value;
         }
     }
-
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
@@ -33,10 +28,11 @@ public class IsSymmetric {
         if (left == null || right == null) {
             return false;
         }
-        if (left.val != right.val) {
+        if (left.value != right.value) {
             return false;
         }
-        return isSymmetric(left.right, right.left) && isSymmetric(left.left, right.right);
+        return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
 
     }
+
 }

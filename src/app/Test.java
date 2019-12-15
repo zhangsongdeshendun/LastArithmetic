@@ -27,13 +27,21 @@ public class Test {
             @Override
             public int compare(User o1, User o2) {
                 if (o1.age > o2.age) {
-                    return 1;
-                } else {
                     return -1;
+                } else {
+                    return 1;
                 }
 
             }
         });
+
+//        Iterator<User> iterator = list.iterator();
+//        while (iterator.hasNext()) {
+//            User next = iterator.next();
+//            if (next == null || next.age == 9) {
+//                iterator.remove();
+//            }
+//        }
 
 
         for (User user : list) {
