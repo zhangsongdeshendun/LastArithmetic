@@ -1,7 +1,6 @@
 package app;
 
 public class ReverseListTest {
-
     public class ListNode {
         int val;
         ListNode next;
@@ -12,24 +11,20 @@ public class ReverseListTest {
     }
 
     public ListNode reverseList(ListNode head) {
-
         if (head == null || head.next == null) {
             return head;
         }
         ListNode currentNode = head;
-        ListNode next;
-        ListNode reverseHead = null;
+        ListNode reverseNode = null;
+        ListNode next = null;
         while (currentNode != null) {
             next = currentNode.next;
-
-            currentNode.next = reverseHead;
-            reverseHead = currentNode;
+            currentNode.next = reverseNode;
+            reverseNode = currentNode;
 
             currentNode = next;
         }
 
-        return reverseHead;
-
-
+        return reverseNode;
     }
 }

@@ -8,53 +8,43 @@ public class SearchRange {
 
     public int[] searchRange(int[] nums, int target) {
         int[] array = {-1, -1};
-
         if (nums == null || nums.length <= 0) {
             return array;
         }
-
         int left = 0;
         int right = nums.length - 1;
         int middle = 0;
         while (left <= right) {
             middle = (left + right) / 2;
-            if (nums[middle] > target) {
-                right = middle - 1;
-            } else if (nums[middle] < target) {
-                left = middle + 1;
-            } else {
+            if (nums[middle] == target) {
                 break;
+            } else if (nums[middle] > target) {
+                left++;
+            } else {
+                right--;
             }
             if (left > right) {
-                array[0] = -1;
-                array[1] = -1;
                 return array;
             }
         }
 
         for (int i = middle; i >= 0; i--) {
             if (nums[i] != target) {
-                array[0] = i+1;
-                break;
+                array[0] = i + 1;
             }
-
-            if(i==0&&nums[i] == target){
-                array[0]=i;
+            if (nums[i] == target && i == 0) {
+                array[0] = 0;
             }
-
         }
 
-        for (int i = middle; i <nums.length; i++) {
+        for (int i = middle; i < nums.length; i++) {
             if (nums[i] != target) {
-                array[1] = i-1;
-                break;
+                array[1] = i - 1;
             }
-            if(i==nums.length-1&&nums[i] == target){
-                array[1]=i;
+            if (nums[i] == target && i == nums.length - 1) {
+                array[1] = nums.length - 1;
             }
         }
-
-
 
         return array;
 
