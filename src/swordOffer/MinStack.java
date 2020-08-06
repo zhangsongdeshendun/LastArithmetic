@@ -2,6 +2,10 @@ package swordOffer;
 
 import java.util.Stack;
 
+/**
+ * Offer 30. 包含min函数的栈
+ * 这是正确答案
+ */
 public class MinStack {
 
     Stack<Integer> stack = new Stack<>();
