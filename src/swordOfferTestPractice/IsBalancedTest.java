@@ -1,7 +1,7 @@
 package swordOfferTestPractice;
 
 public class IsBalancedTest {
-    private boolean isBalanced=true;
+    private boolean isBalanced = true;
 
     public class TreeNode {
         int val;
@@ -15,10 +15,10 @@ public class IsBalancedTest {
 
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
+
             return true;
         }
         check(root);
-
         return isBalanced;
 
 
@@ -33,7 +33,6 @@ public class IsBalancedTest {
         int right = check(root.right) + 1;
         if (Math.abs(left - right) > 1) {
             isBalanced = false;
-
         }
         return Math.max(left, right);
 

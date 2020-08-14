@@ -1,5 +1,9 @@
 package leetcode;
 
+/**
+ * 236. 二叉树的最近公共祖先
+ * 这是正确答案
+ */
 public class LowestCommonAncestor {
 
     public class TreeNode {

@@ -2,6 +2,7 @@ package leetcode;
 
 /**
  * 23. 合并K个排序链表
+ * 这是正确答案
  */
 public class MergeKLists {
 
@@ -22,6 +23,7 @@ public class MergeKLists {
 
 
     }
+
 
     public ListNode mergeKLists(ListNode[] lists, int left, int right) {
         if (left < right) {

@@ -17,9 +17,10 @@ public class MaxDepthTest {
         if (root == null) {
             return 0;
         }
-        int x = maxDepth(root.left) + 1;
-        int y = maxDepth(root.right) + 1;
-        return Math.max(x, y);
+        int left = maxDepth(root.left) + 1;
+        int right = maxDepth(root.right) + 1;
+        return Math.max(left, right);
+
 
     }
 

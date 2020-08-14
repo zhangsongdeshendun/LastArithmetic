@@ -18,18 +18,18 @@ public class MergeTwoListsTest {
         }
         if (l1 == null) {
             return l2;
+
         }
         if (l2 == null) {
             return l1;
-        }
-        ListNode currentNode = null;
-        ListNode mergeNode = null;
 
+        }
+        ListNode currentNode;
+        ListNode mergeNode;
         if (l1.val < l2.val) {
             currentNode = l1;
             mergeNode = currentNode;
             l1 = l1.next;
-
         } else {
             currentNode = l2;
             mergeNode = currentNode;
@@ -45,15 +45,14 @@ public class MergeTwoListsTest {
                 currentNode = currentNode.next;
                 l2 = l2.next;
             }
-
         }
         if (l1 == null) {
             currentNode.next = l2;
         }
-
         if (l2 == null) {
             currentNode.next = l1;
         }
+
 
         return mergeNode;
 

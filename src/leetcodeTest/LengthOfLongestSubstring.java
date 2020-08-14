@@ -1,5 +1,7 @@
 package leetcodeTest;
 
+import java.util.HashMap;
+
 public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
@@ -9,28 +11,25 @@ public class LengthOfLongestSubstring {
 
 
     public int lengthOfLongestSubstring(String s) {
-        if (s == null || s.length() <= 0) {
+        if (s == null || s.length() == 0) {
             return 0;
         }
-        int maxSum = 1;
-        char[] array = s.toCharArray();
-        String target = array[0] + "";
-
-        for (int i = 1; i < array.length; i++) {
-            if (!target.contains(array[i] + "")) {
-                target += array[i];
-
-            } else {
-                target = array[i] + "";
+        int start = -1;
+        int sum = 0;
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (hashMap.containsKey(s.charAt(i))) {
+                int temp = hashMap.get(s.charAt(i));
+                if (start < temp) {
+                    start = temp;
+                }
             }
+            hashMap.put(s.charAt(i), i);
+            sum = Math.max(sum, i - start);
 
-            if (target.length() > maxSum) {
-                maxSum = target.length();
-            }
 
         }
-
-        return maxSum;
+        return sum;
 
     }
 

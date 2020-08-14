@@ -6,22 +6,22 @@ public class MaxSubArrayTest {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int currentMax = nums[0];
-        int sumMax = nums[0];
+        int currentSum = nums[0];
+        int maxSum = nums[0];
         for (int i = 1; i < nums.length; i++) {
-            if (currentMax >= 0) {
-                currentMax += nums[i];
+            if (currentSum >= 0) {
+                currentSum += nums[i];
             } else {
-                currentMax = nums[i];
+                currentSum = nums[i];
             }
+            maxSum = Math.max(maxSum, currentSum);
 
-            if (sumMax < currentMax) {
-                sumMax = currentMax;
-            }
         }
 
-        return sumMax;
+
+        return maxSum;
 
 
     }
+
 }

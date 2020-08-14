@@ -16,12 +16,10 @@ public class QuickSortTest {
         int i = left;
         int j = right;
         int target = array[i];
-
         while (i < j) {
             while (i < j && target <= array[j]) {
                 j--;
             }
-
             while (i < j && target >= array[i]) {
                 i++;
             }

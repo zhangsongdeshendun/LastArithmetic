@@ -13,13 +13,13 @@ public class MergeKListsTest {
     public ListNode mergeKLists(ListNode[] lists, int left, int right) {
         if (left < right) {
             int middle = (left + right) / 2;
-            ListNode listNode1 = mergeKLists(lists, left, middle);
-            ListNode listNode2 = mergeKLists(lists, middle + 1, right);
-            return mergeTwoLists(listNode1, listNode2);
+            ListNode leftNode = mergeKLists(lists, left, middle);
+            ListNode rightNode = mergeKLists(lists, middle + 1, right);
+            return mergeTwoLists(leftNode, rightNode);
         } else if (left == right) {
             return lists[left];
-        }
 
+        }
         return null;
 
     }
