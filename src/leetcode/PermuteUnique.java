@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class permuteUnique {
+public class PermuteUnique {
     private List<List<Integer>> resultList = new ArrayList<>();
 
 
