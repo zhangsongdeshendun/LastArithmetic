@@ -2,12 +2,14 @@ package leetcodeTest;
 
 public class ClimbStairsTest {
     private int climbStairs(int n) {
-        if (n <= 0) {
-            return 0;
+        int[] result = new int[n + 2];
+        result[0] = 1;
+        result[1] = 1;
+        for (int i = 2; i <=n; i++) {
+            result[i] = result[i - 1] + result[i - 2];
+
         }
-        if (n == 1 || n == 2) {
-            return n;
-        }
-        return climbStairs(n - 1) + climbStairs(n - 2);
+        return result[n];
+
     }
 }
