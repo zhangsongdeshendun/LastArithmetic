@@ -1,5 +1,9 @@
 package swordOffer;
 
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 剑指 Offer 26. 树的子结构
  * 这是正确答案
@@ -18,25 +22,24 @@ public class IsSubStructure {
 
 
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        if (A == null || B == null) {
+        if (B == null) {
             return false;
         }
-        boolean result = check(A, B);
-        if (result) {
-            return true;
-        }
-        if (A.left != null) {
-            boolean result1 = isSubStructure(A.left, B);
-            if (result1) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(A);
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.poll();
+
+            if (check(treeNode, B)) {
                 return true;
             }
 
-        }
+            if (treeNode.left != null) {
+                queue.add(treeNode.left);
+            }
 
-        if (A.right != null) {
-            boolean result2 = isSubStructure(A.right, B);
-            if (result2) {
-                return true;
+            if (treeNode.right != null) {
+                queue.add(treeNode.right);
             }
 
         }
