@@ -12,27 +12,27 @@ public class FindContinuousSequence {
 
     public int[][] findContinuousSequence(int target) {
 
-        int i = 1;
-        int j = 1;
-        int sum = 0;
         ArrayList<int[]> result = new ArrayList<>();
-
-        while (i <= target / 2) {
-            if (sum < target) {
-                sum += j;
-                j++;
-            } else if (sum > target) {
-                sum -= i;
-                i++;
-            } else {
-                int[] list = new int[j - i];
-
-                for (int k = i; k < j; k++) {
-                    list[k - i] = k;
+        int i = 1;
+        int j = 2;
+        int currentSum = 3;
+        while (j < target) {
+            if (currentSum == target) {
+                int[] arrayList = new int[j - i+1];
+                for (int k = i; k <= j; k++) {
+                    arrayList[k - i] = k;
                 }
-                result.add(list);
-                sum -= i;
+                result.add(arrayList);
+                currentSum -= i;
                 i++;
+            } else if (currentSum < target) {
+                j++;
+                currentSum += j;
+
+            } else {
+                currentSum -= i;
+                i++;
+
             }
 
 
