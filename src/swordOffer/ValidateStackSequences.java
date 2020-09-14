@@ -2,6 +2,10 @@ package swordOffer;
 
 import java.util.Stack;
 
+/**
+ * 剑指 Offer 31. 栈的压入、弹出序列
+ * 这是正确答案
+ */
 public class ValidateStackSequences {
 
     public boolean validateStackSequences(int[] pushed, int[] popped) {
