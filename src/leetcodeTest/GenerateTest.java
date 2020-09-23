@@ -7,28 +7,29 @@ public class GenerateTest {
 
     public List<List<Integer>> generate(int numRows) {
 
-        List<List<Integer>> resultList = new ArrayList<>();
-        if (numRows <= 0) {
-            return resultList;
-        }
 
+        List<List<Integer>> result = new ArrayList<>();
+        if(numRows==0){
+            return result;
+        }
         List<Integer> firstList = new ArrayList<>();
         firstList.add(1);
-        resultList.add(firstList);
+        result.add(firstList);
 
         for (int i = 1; i < numRows; i++) {
-            List<Integer> preList = resultList.get(i - 1);
+            List<Integer> preList = result.get(i - 1);
             List<Integer> currentList = new ArrayList<>();
             currentList.add(1);
-            for (int j = 1; j < i; j++) {
-                currentList.add(preList.get(j - 1) + preList.get(j));
-
+            int index = 0;
+            while (index <= preList.size() - 2) {
+                currentList.add(preList.get(index) + preList.get(index + 1));
+                index++;
             }
             currentList.add(1);
-            resultList.add(currentList);
-
+            result.add(currentList);
         }
-        return resultList;
+        return result;
+
 
     }
 
