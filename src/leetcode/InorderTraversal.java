@@ -1,17 +1,13 @@
-package leetcodeTest;
+package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 /**
- * /**
- * * 二叉树非递归中序遍历思路
- * * 本质其实是类似于双指针
- * * 一个指向前一个节点，另一个指向正在遍历的节点
- * * 1)若其左孩子不为空，则将P入栈并将P的左孩子置为当前的P，然后对当前结点P再进行相同的处理；
- * * 2)若其左孩子为空，则取栈顶元素并进行出栈操作，访问该栈顶结点，然后将当前的P置为栈顶结点的右孩子；
- * * 3)直到P为NULL并且栈为空则遍历结束。
+ *
+ * 94. 二叉树的中序遍历
+ * 这是正确答案
  */
 public class InorderTraversal {
 
