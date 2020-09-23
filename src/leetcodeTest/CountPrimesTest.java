@@ -1,13 +1,10 @@
-package leetcode;
+package leetcodeTest;
 
-/**
- * 204. 计数质数
- */
-public class CountPrimes {
+public class CountPrimesTest {
 
     public static void main(String[] args) {
-        CountPrimes countPrimes = new CountPrimes();
-        System.out.println(countPrimes.countPrimes(10) + "");
+        CountPrimesTest countPrimesTest = new CountPrimesTest();
+        countPrimesTest.countPrimes(3);
     }
 
     public int countPrimes(int n) {
@@ -41,6 +38,5 @@ public class CountPrimes {
         return true;
 
     }
-
 
 }
