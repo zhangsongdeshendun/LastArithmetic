@@ -1,11 +1,6 @@
-package leetcode;
+package leetcodeTest;
 
-/**
- * 这是正确答案
- * 82. 删除排序链表中的重复元素 II
- */
-public class DeleteDuplicatesII {
-
+public class DeleteDuplicatesIITest {
     class ListNode {
         int val;
         ListNode next;
@@ -16,16 +11,20 @@ public class DeleteDuplicatesII {
         }
     }
 
-    public ListNode deleteDuplicates(ListNode head) {//这里并不是在原来的节点上删除，而是用新的p指针 选择合适的节点
-        if (head == null) return head;
-        ListNode dummyHead = new ListNode(-1);
-        ListNode p = dummyHead;
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dummpNode = new ListNode(-1);
+        ListNode p = dummpNode;
+
         while (head != null && head.next != null) {
             if (head.val == head.next.val) {
-                while (head.next != null && head.val == head.next.val) {
+                while (head != null && head.next != null && head.val == head.next.val) {
                     head = head.next;
                 }
                 head = head.next;
+
             } else {
                 p.next = head;
                 p = p.next;
@@ -33,8 +32,8 @@ public class DeleteDuplicatesII {
             }
         }
         p.next = head;
-        return dummyHead.next;
-
+        return dummpNode.next;
 
     }
+
 }
