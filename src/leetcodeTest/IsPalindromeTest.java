@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class IsPalindrome {
+public class IsPalindromeTest {
     public boolean isPalindrome(int x) {
 
         char[] array = String.valueOf(x).toCharArray();
@@ -15,7 +15,7 @@ public class IsPalindrome {
     }
 
     public static void main(String[] args) {
-        IsPalindrome isPalindrome = new IsPalindrome();
+        IsPalindromeTest isPalindrome = new IsPalindromeTest();
         System.out.println(isPalindrome.isPalindrome(-121));
     }
 
